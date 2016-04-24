@@ -1,2 +1,14 @@
-# entsoftarch-1516-client
+# entsoftarch1516-client
+
 Client for the Enterprise Software Architecture'15-16 course project
+
+This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
+version 0.15.1.
+
+## Build & development
+
+Run `grunt` for building and `grunt serve` for preview.
+
+## Testing
+
+Running `grunt test` will run the unit tests with karma.
