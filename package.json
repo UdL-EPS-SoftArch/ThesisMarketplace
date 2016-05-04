@@ -43,7 +43,12 @@
   "scripts": {
     "test": "grunt test",
     "start": "node web.js",
-    "heroku-prebuild": "npm install -g bower grunt-cli express gzippo morgan",
+    "heroku-prebuild": "npm install -g bower grunt-cli",
     "heroku-postbuild": "bower install && grunt build"
+  },
+  "dependencies": {
+    "express": "^4.13.4",
+    "gzippo": "^0.2.0",
+    "morgan": "^1.7.0"
   }
 }
