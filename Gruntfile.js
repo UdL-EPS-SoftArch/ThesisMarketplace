@@ -480,6 +480,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('test', [
     'clean:server',
+    'ngconstant:development',     // grunt-ng-constant
     'wiredep',
     'concurrent:test',
     'postcss',
