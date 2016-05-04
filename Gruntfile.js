@@ -66,6 +66,29 @@ module.exports = function (grunt) {
         ]
       }
     },
+    ngconstant: {  // grunt-ng-constant
+      options: {
+        dest: 'app/scripts/config.js',
+        name: 'config',
+        wrap: '\'use strict\';\n\n {%= __ngModule %}',
+      },
+      development: {
+        constants: {
+          ENV: {
+            name: 'development',
+            api: '/api'
+          }
+        }
+      },
+      production: {
+        constants: {
+          ENV: {
+            name: 'production',
+            api: 'http://thesismarket-api.herokuapp.com'
+          }
+        }
+      }
+    },
 
     // The actual grunt server settings
     connect: {
@@ -75,11 +98,17 @@ module.exports = function (grunt) {
         hostname: 'localhost',
         livereload: 35729
       },
+      proxies: [{ //grunt-connect-proxy
+        context: '/api',
+        host: 'localhost',
+        port: 8080
+      }],
       livereload: {
         options: {
           open: true,
           middleware: function (connect) {
             return [
+              require('grunt-connect-proxy/lib/utils').proxyRequest, //grunt-connect-proxy
               connect.static('.tmp'),
               connect().use(
                 '/bower_components',
@@ -220,7 +249,7 @@ module.exports = function (grunt) {
             }
           }
       }
-    }, 
+    },
 
     // Renames files for browser caching purposes
     filerev: {
@@ -338,7 +367,7 @@ module.exports = function (grunt) {
     ngtemplates: {
       dist: {
         options: {
-          module: 'entsoftarch1516ClientApp',
+          module: 'thesismarketApp',
           htmlmin: '<%= htmlmin.dist.options %>',
           usemin: 'scripts/scripts.js'
         },
@@ -434,9 +463,11 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
+      'ngconstant:development',   // grunt-ng-constant
       'wiredep',
       'concurrent:server',
       'postcss:server',
+      'configureProxies:server',  //grunt-connect-proxy
       'connect:livereload',
       'watch'
     ]);
@@ -458,6 +489,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
+    'ngconstant:production',      // grunt-ng-constant
     'wiredep',
     'useminPrepare',
     'concurrent:dist',
@@ -480,4 +512,7 @@ module.exports = function (grunt) {
     'test',
     'build'
   ]);
+
+  grunt.loadNpmTasks('grunt-connect-proxy'); //grunt-connect-proxy
+  grunt.loadNpmTasks('grunt-ng-constant');   // grunt-ng-constant
 };

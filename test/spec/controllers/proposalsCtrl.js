@@ -1,23 +1,23 @@
 'use strict';
 
-describe('Controller: MainCtrl', function () {
+describe('Controller: ProposalsCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('entsoftarch1516ClientApp'));
+  beforeEach(module('thesismarketApp'));
 
-  var MainCtrl,
+  var ProposalsCtrl,
     scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    MainCtrl = $controller('MainCtrl', {
+    ProposalsCtrl = $controller('ProposalsCtrl', {
       $scope: scope
       // place here mocked dependencies
     });
   }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(MainCtrl.awesomeThings.length).toBe(3);
+  it('List of proposals initially empty', function () {
+    expect(scope.proposals.length).toBe(0);
   });
 });

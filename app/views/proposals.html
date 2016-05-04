@@ -1,0 +1,12 @@
+<div>
+  <h3>Proposals</h3>
+</div>
+<div class="row"  ng-repeat="proposal in proposals">
+  <div class="col-lg-12">
+    <h4>{{proposal.title}} by {{proposal._links.creator.href.split('/').pop()}}</h4>
+    <p>{{proposal.description}}</p>
+    <p>Degree: {{proposal.degree}}</p>
+    <p>Status: {{proposal.status}}</p>
+    <p>Topics: <i ng-repeat="topic in proposal.topics">{{topic}}</i></p>
+  </div>
+</div>
