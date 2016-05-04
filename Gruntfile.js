@@ -84,7 +84,7 @@ module.exports = function (grunt) {
         constants: {
           ENV: {
             name: 'production',
-            api: 'http://thesismarket-api.herokuapp.com'
+            api: 'https://thesismarket-api.herokuapp.com'
           }
         }
       }
