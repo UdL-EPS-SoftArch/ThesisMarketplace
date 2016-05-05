@@ -7,3 +7,13 @@
  * # CommentCtrl
  * Controller of the thesismarketApp
  */
+angular.module('thesismarketApp')
+  .controller('CommentsCtrl', function($scope, Comment) {
+
+    $scope.comments = [];
+
+    Comment.query().$promise.then(function (comments) {
+      $scope.comments = comments._embeddedItems;
+    });
+
+  });
