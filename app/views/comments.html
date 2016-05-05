@@ -1,1 +1,9 @@
-
+<div>
+  <h3>Comments</h3>
+</div>
+<div class="row"  ng-repeat="comment in comments">
+  <div class="col-lg-12">
+    <h4>{{comment.author}}</h4>
+    <p>{{comment.text}}</p>
+  </div>
+</div>
