@@ -76,7 +76,7 @@ module.exports = function (grunt) {
         constants: {
           ENV: {
             name: 'development',
-            api: '/api'
+            api: 'http://localhost:8080'
           }
         }
       },
@@ -98,17 +98,11 @@ module.exports = function (grunt) {
         hostname: 'localhost',
         livereload: 35729
       },
-      proxies: [{ //grunt-connect-proxy
-        context: '/api',
-        host: 'localhost',
-        port: 8080
-      }],
       livereload: {
         options: {
           open: true,
           middleware: function (connect) {
             return [
-              require('grunt-connect-proxy/lib/utils').proxyRequest, //grunt-connect-proxy
               connect.static('.tmp'),
               connect().use(
                 '/bower_components',
@@ -467,7 +461,6 @@ module.exports = function (grunt) {
       'wiredep',
       'concurrent:server',
       'postcss:server',
-      'configureProxies:server',  //grunt-connect-proxy
       'connect:livereload',
       'watch'
     ]);
@@ -514,6 +507,5 @@ module.exports = function (grunt) {
     'build'
   ]);
 
-  grunt.loadNpmTasks('grunt-connect-proxy'); //grunt-connect-proxy
   grunt.loadNpmTasks('grunt-ng-constant');   // grunt-ng-constant
 };
