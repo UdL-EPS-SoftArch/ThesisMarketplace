@@ -17,13 +17,21 @@ angular
     'ngTouch',
     'config',
     'ui.router',
-    'spring-data-rest'
+    'spring-data-rest',
+    'angularBasicAuth'
   ])
   .config(function ($stateProvider) {
     $stateProvider
       .state('home', {        // Home page
         url: '/',
         templateUrl: 'views/home.html'})
+      .state('login', {       // Login
+        url: '/login',
+        templateUrl: 'views/login.html',
+        controller: 'LoginCtrl' })
+      .state('logout', {       // Logout
+        url: '/logout',
+        controller: 'LogoutCtrl' })
       .state('proposals', {   // List Proposals
         url: '/proposals',
         templateUrl: 'views/proposals.html',
