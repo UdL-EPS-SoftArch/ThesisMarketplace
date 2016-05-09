@@ -45,6 +45,12 @@ angular
         templateUrl: 'views/publishproposal.html',
         controller: 'PublishProposalCtrl as publish'
       });
+        controller: 'ProposalsCtrl' })
+      .state('proposalSubmissions' ,{
+        url: '/proposalSubmissions',
+        templateUrl: 'views/proposalSubmissions.html',
+        controller: 'ProposalSubmissionsCtrl'
+      });
   })
   .run(function($state) {
     $state.go('home'); // Initial transition when app starts
