@@ -8,7 +8,7 @@
  * Controller of the thesismarketApp
  */
 angular.module('thesismarketApp')
-    .controller('PublishProposalCtrl', function(Proposal) {
+    .controller('PublishProposalCtrl', function (PublishProposals) {
 
         var vm = this;
 
@@ -24,8 +24,8 @@ angular.module('thesismarketApp')
 
             vm.publishProposals = [];
 
-            Proposal.query().$promise.then(function(proposals) {
-                vm.publishProposals = proposals._embeddedItems;
+            PublishProposals.query().$promise.then(function (publishProposals) {
+                vm.publishProposals = publishProposals._embeddedItems;
             });
 
 
