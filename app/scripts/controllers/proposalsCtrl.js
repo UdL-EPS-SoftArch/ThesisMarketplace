@@ -14,6 +14,11 @@ angular.module('thesismarketApp')
 
     Proposal.query().$promise.then(function (proposals) {
       $scope.proposals = proposals._embeddedItems;
+      $scope.proposals.forEach(function(proposal) {
+        proposal._resources("creator").get(function (data) {
+          proposal.creator = data;
+        })
+      });
     });
 
   });

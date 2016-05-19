@@ -3,10 +3,10 @@
 </div>
 <div class="row"  ng-repeat="proposal in proposals">
   <div class="col-lg-12">
-    <h4>{{proposal.title}} by {{proposal._links.creator.href.split('/').pop()}}</h4>
+    <h4>{{proposal.title}} by {{proposal.creator.email}}</h4>
     <p>{{proposal.description}}</p>
     <p>Degree: {{proposal.degree}}</p>
     <p>Status: {{proposal.status}}</p>
-    <p>Topics: <i ng-repeat="topic in proposal.topics">{{topic}}</i></p>
+    <p>Topics: <i ng-repeat="topic in proposal.topics">{{topic}}{{$last ? '' : ', '}}</i></p>
   </div>
 </div>
