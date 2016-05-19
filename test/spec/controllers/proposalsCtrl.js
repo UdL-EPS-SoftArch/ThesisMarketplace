@@ -2,6 +2,10 @@
 
 describe('Controller: ProposalsCtrl', function () {
 
+  //angular.module('thesismarketApp', []).config(function (SpringDataRestInterceptorProvider) {
+  //  SpringDataRestInterceptorProvider.apply();
+  //});
+
   // load the controller's module
   beforeEach(module('thesismarketApp'));
 
@@ -41,7 +45,9 @@ describe('Controller: ProposalsCtrl', function () {
   describe('Proposal.query', function () {
 
     var mockProposalResponse = {
-      "_embeddedItems": [ { "title": "Proposal 1" }, { "title": "Proposal 2" } ]
+      "_embeddedItems": [ 
+        { "title": "Proposal 1", _resources: function(){return {get: function(){}}} }, 
+        { "title": "Proposal 2", _resources: function(){return {get: function(){}}} } ]
     };
 
     beforeEach(function() {
