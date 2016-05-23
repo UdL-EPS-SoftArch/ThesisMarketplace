@@ -28,7 +28,6 @@ angular.module('thesismarketApp')
 
 
         PublishProposals.query().$promise.then(function (publishProposals) {
-            console.log(publishProposals);
             vm.publishProposals = publishProposals._embeddedItems;
             vm.publishProposals.forEach(function (publishProposal) {
                 publishProposal.publishes = publishProposal._resources("publishes").get();

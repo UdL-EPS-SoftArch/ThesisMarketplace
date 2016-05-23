@@ -14,7 +14,6 @@ angular.module('thesismarketApp')
 
         Comment.query().$promise.then(function (comments) {
             $scope.comments = comments._embeddedItems;
-            console.log(comments);
             $scope.comments.forEach(function (comment) {
                 comment.author = comment._resources("author").get();
             });
