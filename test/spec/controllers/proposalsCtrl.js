@@ -55,11 +55,11 @@ describe('Controller: ProposalsCtrl', function () {
       $rootScope.$apply();
     });
 
-    it('should query MeetingProposal service', function () {
+    it('should query Proposal service', function () {
       expect(mockProposal.query).toHaveBeenCalled();
     });
 
-    it('should set the response from the MeetinProposal.query to $scope.meetings', function () {
+    it('should get 2 proposals', function () {
       expect($scope.proposals.length).toBe(2);
     });
 
