@@ -25,8 +25,7 @@ angular.module('thesismarketApp')
     function init() {
 
         vm.publishProposals = [];
-
-
+      
         PublishProposals.query().$promise.then(function (publishProposals) {
             vm.publishProposals = publishProposals._embeddedItems;
             vm.publishProposals.forEach(function (publishProposal) {
@@ -35,12 +34,6 @@ angular.module('thesismarketApp')
             });
 
         });
-
-
-
     }
-
     init();
-
-
 });
