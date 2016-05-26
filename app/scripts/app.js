@@ -44,6 +44,11 @@ angular
         url: '/publishproposal',
         templateUrl: 'views/publishproposal.html',
         controller: 'PublishProposalCtrl as publish'
+      })
+      .state('proposalSubmissions' ,{
+        url: '/proposalSubmissions',
+        templateUrl: 'views/proposalSubmissions.html',
+        controller: 'ProposalSubmissionsCtrl'
       });
   })
   .run(function($state) {
