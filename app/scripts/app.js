@@ -44,8 +44,7 @@ angular
         url: '/publishproposal',
         templateUrl: 'views/publishproposal.html',
         controller: 'PublishProposalCtrl as publish'
-      });
-        controller: 'ProposalsCtrl' })
+      })
       .state('proposalSubmissions' ,{
         url: '/proposalSubmissions',
         templateUrl: 'views/proposalSubmissions.html',
