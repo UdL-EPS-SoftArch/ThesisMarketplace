@@ -4,8 +4,8 @@
 <div class="row"  ng-repeat="proposalSubmission in proposalSubmissions">
   <div class="col-lg-12">
     <h4>{{ proposalSubmission.title}} by {{proposalSubmission.agent.email}}</h4>
-    <p>{{proposalSubmission.submits.title}}</p>
-    <p>{{proposalSubmission.submits.description}}</p>
+    <p>Title: {{proposalSubmission.submits.title}}</p>
+    <p>Description: {{proposalSubmission.submits.description}}</p>
     <p>Degree: {{proposalSubmission.submits.degree}}</p>
     <p>Status: {{proposalSubmission.submits.status}}</p>
   </div>
