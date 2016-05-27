@@ -71,7 +71,7 @@ angular
       .state('studentsOffers', {      // List StudentOffers
         url: '/studentOffers',
         templateUrl: 'views/studentOffers.html',
-        controller: 'studentOffer'});
+        controller: 'studentOfferCtrl as studentOffer'});
   })
   .run(function($state) {
     $state.go('home'); // Initial transition when app starts
