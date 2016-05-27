@@ -1,0 +1,12 @@
+<div>
+  <h3>Proposal Registers</h3>
+</div>
+<div class="row"  ng-repeat="proposalRegister in proposalRegisters">
+  <div class="col-lg-12">
+    <h4>{{ proposalRegister.title}} by {{proposalRegister.agent.email}}</h4>
+    <p>Title: {{proposalRegister.submits.title}}</p>
+    <p>Description: {{proposalRegister.submits.description}}</p>
+    <p>Degree: {{proposalRegister.submits.degree}}</p>
+    <p>Status: {{proposalRegister.submits.status}}</p>
+  </div>
+</div>

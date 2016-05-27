@@ -49,7 +49,13 @@ angular
         url: '/proposalSubmissions',
         templateUrl: 'views/proposalSubmissions.html',
         controller: 'ProposalSubmissionsCtrl'
-      });
+      })
+      .state('proposalRegistrations' ,{
+        url: '/proposalRegistrations',
+        templateUrl: 'views/proposalRegistration.html',
+        controller: 'ProposalRegistrationCtrl'
+      })
+      ;
   })
   .run(function($state) {
     $state.go('home'); // Initial transition when app starts
