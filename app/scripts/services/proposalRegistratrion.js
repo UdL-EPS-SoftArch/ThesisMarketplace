@@ -2,15 +2,15 @@
 
 /**
  * @ngdoc service
- * @name thesismarketApp.proposal
+ * @name thesismarketApp.proposalSubmission
  * @description
- * # proposal
+ * # proposalSubmission
  * Factory in the thesismarketApp.
  */
 
 angular.module('thesismarketApp')
-  .factory('Comment', ['$resource', 'ENV', function($resource, ENV) {
-    return $resource(ENV.api+'/comments/:id', null,
+  .factory('ProposalRegistration', ['$resource', 'ENV', function($resource, ENV) {
+    return $resource(ENV.api+'/proposalRegistrations/:id', null,
       {
         'query': { method:'GET', isArray: false },
         'update': { method:'PUT' },
