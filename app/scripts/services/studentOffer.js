@@ -1,6 +1,4 @@
-/**
- * Created by victor on 27/05/16.
- */
+'use strict';
 
 
 angular.module('thesismarketApp')

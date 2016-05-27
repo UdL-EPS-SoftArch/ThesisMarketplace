@@ -70,8 +70,8 @@ angular
         controller: 'RegisterProposalCtrl as register' })
       .state('studentsOffers', {      // List StudentOffers
         url: '/studentOffers',
-        templateUrl: 'views/studentOffers.html',
-        controller: 'studentOfferCtrl as studentOffer'});
+        templateUrl: 'views/studentoffers.html',
+        controller: 'studentOfferCtrl'});
   })
   .run(function($state) {
     $state.go('home'); // Initial transition when app starts
