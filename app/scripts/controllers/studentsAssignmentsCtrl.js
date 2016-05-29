@@ -15,15 +15,13 @@ angular.module('thesismarketApp')
 
     alert("Enter controller");
     $scope.studentsAssignments = [];
-    $scope.proposal;
     alert("test1");
 
     StudentAssignment.query().$promise.then(function (studentsAssignments) {
       $scope.studentsAssignments = studentsAssignments._embeddedItems;
 
       $scope.studentsAssignments.forEach(function(studentAssignment) {
-        studentAssignment.assigns = studentAssignment._resources("assigns").get()
-        $scope.proposal = studentAssignment.assigns.getTarget();
+        studentAssignment.assigns = studentAssignment._resources("assigns").get();
       });
 
     });
