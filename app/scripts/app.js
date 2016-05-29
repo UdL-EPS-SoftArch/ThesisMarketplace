@@ -39,7 +39,11 @@ angular
       .state('comments', {   // List Commnents
         url: '/comments',
         templateUrl: 'views/comments.html',
-        controller: 'CommentsCtrl' });
+        controller: 'CommentsCtrl' })
+      .state('studentsAssignments', {   // List Proposals
+        url: '/studentsassignments',
+        templateUrl: 'views/studentsAssignments.html',
+        controller: 'StudentsAssignmentsCtrl' });
   })
   .run(function($state) {
     $state.go('home'); // Initial transition when app starts
