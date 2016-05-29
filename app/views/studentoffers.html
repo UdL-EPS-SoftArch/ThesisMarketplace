@@ -7,7 +7,7 @@
 <div class="row" ng-repeat="studentOffer in studentOffers">
 
   <div class="col-lg-12">
-    <h4>{{studentOffer.target}}</h4>
-
+    <h4>Offer by {{ studentOffer.agent.email }}</h4>
+    <h5>to Proposal "{{ studentOffer._embeddedItems.proposal.title }}"</h5>
   </div>
 </div>
