@@ -2,21 +2,30 @@
 
 /**
  * @ngdoc function
- * @name thesismarketApp.controller:ProposalsCtrl
+ * @name thesismarketApp.controller:StudentsAssignmentsCtrl
  * @description
- * # ProposalsCtrl
+ * # StudentsAssignments
  * Controller of the thesismarketApp
  */
+
+alert("")
+
 angular.module('thesismarketApp')
-  .controller('ProposalsCtrl', function($scope, Proposal) {
+  .controller('StudentsAssignmentsCtrl', function($scope, StudentAssignment) {
 
-    $scope.proposals = [];
+    alert("Enter controller");
+    $scope.studentsAssignments = [];
+    $scope.proposal;
+    alert("test1");
 
-    Proposal.query().$promise.then(function (proposals) {
-      $scope.proposals = proposals._embeddedItems;
-      $scope.proposals.forEach(function(proposal) {
-        proposal.creator = proposal._resources("creator").get();
+    StudentAssignment.query().$promise.then(function (studentsAssignments) {
+      $scope.studentsAssignments = studentsAssignments._embeddedItems;
+
+      $scope.studentsAssignments.forEach(function(studentAssignment) {
+        studentAssignment.assigns = studentAssignment._resources("assigns").get()
+        $scope.proposal = studentAssignment.assigns.getTarget();
       });
+
     });
 
   });
