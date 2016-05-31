@@ -17,7 +17,7 @@
     "angular-mocks": "^1.4.10"
   },
   "resolutions": {
-    "angular": "1.4.10"
+    "angular": "1.5.6"
   },
   "appPath": "app",
   "moduleName": "thesismarketApp",
