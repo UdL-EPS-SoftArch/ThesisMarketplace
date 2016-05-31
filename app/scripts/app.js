@@ -40,11 +40,14 @@ angular
         url: '/comments',
         templateUrl: 'views/comments.html',
         controller: 'CommentsCtrl' })
+      .state('studentsAssignments', {   // List Proposals
+        url: '/studentsassignments',
+        templateUrl: 'views/studentsAssignments.html',
+        controller: 'StudentsAssignmentsCtrl' })
       .state('publishproposal', { // List ProposalPublications
         url: '/publishproposal',
         templateUrl: 'views/publishproposal.html',
-        controller: 'PublishProposalCtrl as publish'
-      })
+        controller: 'PublishProposalCtrl as publish'})
       .state('proposalSubmissions' ,{
         url: '/proposalSubmissions',
         templateUrl: 'views/proposalSubmissions.html',

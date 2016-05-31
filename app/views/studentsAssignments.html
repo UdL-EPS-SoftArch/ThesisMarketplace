@@ -1,0 +1,10 @@
+<div>
+  <h3>Students Assignments</h3>
+</div>
+<div class="row"  ng-repeat="studentAssignment in studentsAssignments">
+  <div class="col-lg-12">
+    <h4>DateTime info: {{ studentAssignment.dateTime }}</h4>
+    <h5>Student name: {{ studentAssignment.assigns.agent._links.self.href.split('/').pop() }}</h5>
+    <h5>Proposal title: {{ studentAssignment.assigns._embeddedItems.proposal.title }}</h5>
+  </div>
+</div>
