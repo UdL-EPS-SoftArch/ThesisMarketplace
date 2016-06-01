@@ -1,0 +1,19 @@
+<div>
+    <h3>Register Proposal</h3>
+</div>
+
+<div class="row" ng-repeat="proposal in register.registerProposals">
+    <div class="col-lg-12">
+        <div ng-repeat="role in proposal.agent.authorities">
+            <h4> Proposal published by
+                <span ng-if="role.authority == 'ROLE_COORDINATOR'"> Cordinator</span>
+                <span ng-if="role.authority == 'ROLE_PROFESSOR'"> Professor</span>
+                <span ng-if="role.authority == 'ROLE_STUDENT'"> Student</span>
+            </h4>
+        </div>
+        <h4>Email: {{proposal.agent.email}}</h4>
+        <h4>Date Time Published: {{proposal.dateTime}}</h4>
+
+
+    </div>
+</div>
