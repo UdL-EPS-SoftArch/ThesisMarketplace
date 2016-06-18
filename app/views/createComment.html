@@ -1,15 +1,13 @@
 <div>
   <h1>You can add new comment!</h1>
 </div>
-<div ng-show="error" class="alert alert-danger">{{error}}</div>
-<form name="form" ng-submit="onCreateComment()" role="form">
+<form name="form">
   <div class="form-group">
-    <label for="comment">Comment</label>
-    <i class="fa fa-key"></i>
-    <textarea type="text" name="comment" id="comment" class="form-control" ng-model="comment" required />
+    <label>Comment</label>
+    <textarea type="text" name="comment" id="comment" class="form-control" ng-model="comment" required/>
     <span ng-show="form.comment.$dirty && form.comment.$error.required" class="help-block">Comment is required</span>
   </div>
   <div class="form-actions">
-    <button type="submit" class="btn btn-danger">Add comment</button>
+    <button type="submit" class="btn btn-primary">Add comment</button>
   </div>
 </form>
