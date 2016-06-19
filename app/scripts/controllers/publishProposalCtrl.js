@@ -9,11 +9,32 @@
  */
 angular.module('thesismarketApp')
 
-.controller('PublishProposalCtrl', function (PublishProposals) {
+.controller('PublishProposalCtrl', function (PublishProposals, PublishSubmissions, $rootScope, $scope) {
 
 
     var vm = this;
+    $scope.error = '';
 
+    /**
+     * @ngdoc method
+     * @name sendPublicate
+     * @methodOf              
+     * @name init thesismarketApp.controller:PublishProposalCtrl
+     * @description Function send Publish Submission to Publish Proposal.
+     */
+    vm.sendPublicate = function (publishSubmission) {
+        PublishProposals.update(publishSubmission._embeddedItems).$promise.then(function (result) {
+            PublishSubmissions.remove(publishSubmission._embeddedItems).$promise.then(function (result) {
+                console.log(result);
+
+            }).catch(function (error) {
+                $scope.error = error;
+            });
+        }).catch(function (error) {
+            $scope.error = error;
+        });
+
+    };
     /**
      * @ngdoc method
      * @name init
@@ -25,7 +46,9 @@ angular.module('thesismarketApp')
     function init() {
 
         vm.publishProposals = [];
-      
+
+
+        vm.user = $rootScope.loggedInUsername;
         PublishProposals.query().$promise.then(function (publishProposals) {
             vm.publishProposals = publishProposals._embeddedItems;
             vm.publishProposals.forEach(function (publishProposal) {
@@ -33,7 +56,23 @@ angular.module('thesismarketApp')
                 publishProposal.agent = publishProposal._resources("agent").get();
             });
 
+        }).catch(function (error) {
+            $scope.error = error;
         });
+
+
+        PublishSubmissions.query().$promise.then(function (publishSubmissions) {
+
+            vm.publishSubmissions = publishSubmissions._embeddedItems;
+            console.log(vm.publishSubmissions);
+        }).catch(function (error) {
+            $scope.error = error;
+        });
+
+
     }
+
     init();
+
+
 });

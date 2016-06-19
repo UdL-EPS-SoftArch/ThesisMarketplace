@@ -1,17 +1,33 @@
-<div>
-    <h3>Publish Proposal</h3>
-</div>
-
-<div class="row" ng-repeat="publication in publish.publishProposals">
-    <div class="col-lg-12">
-        <div ng-repeat="role in publication.agent.authorities">
-            <h4> Proposal published by
-                <span ng-if="role.authority == 'ROLE_COORDINATOR'"> Cordinator</span>
-                <span ng-if="role.authority == 'ROLE_PROFESSOR'"> Professor</span>
-                <span ng-if="role.authority == 'ROLE_STUDENT'"> Student</span>
-            </h4>
+<h3>Publish Proposal</h3>
+<div ng-show="error" class="alert alert-danger">{{error.data.message}}</div>
+<div class="panel panel-primary">
+    <div class="panel-heading">Publish Proposal</div>
+    <div class="panel-body">
+        <div class="row" ng-repeat="proposal in publish.publishProposals">
+            <div class="col-lg-12">
+                <div ng-repeat="role in proposal.agent.authorities">
+                    <h4> Proposal published by
+                    <span ng-if="role.authority == 'ROLE_COORDINATOR'"> Cordinator</span>
+                    <span ng-if="role.authority == 'ROLE_PROFESSOR'"> Professor</span>
+                    <span ng-if="role.authority == 'ROLE_STUDENT'"> Student</span>
+                    </h4>
+                </div>
+                <h4>Email: {{proposal.agent.email}}</h4>
+                <h4>Date Time Published: {{proposal.dateTime}}</h4>
+            </div>
         </div>
-        <h4>Email: {{publication.agent.email}}</h4>
-        <h4>Date Time Published: {{publication.dateTime}}</h4>
+    </div>
+</div>
+<div class="panel panel-primary">
+    <div class="panel-heading">Submissions Proposal</div>
+    <div class="panel-body">
+        <div class="row" ng-repeat="proposal in publish.publishSubmissions">
+            <div>
+                <p>Deegre : {{proposal._embeddedItems.proposal.degree}}</p>
+                <p>Title: {{proposal._embeddedItems.proposal.title}}</p>
+                <p>Topics : {{proposal._embeddedItems.proposal.topics[0]}},{{proposal._embeddedItems.proposal.topics[1]}}</p>
+                <button ng-if="publish.user == 'admin'" type="button" ng-click="publish.sendPublicate(proposal);" class="btn btn-success pull-right">Send this proposal to publicate</button>
+            </div>
+        </div>
     </div>
 </div>
