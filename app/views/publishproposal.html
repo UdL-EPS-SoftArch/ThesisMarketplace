@@ -26,7 +26,7 @@
                 <p>Deegre : {{proposal._embeddedItems.proposal.degree}}</p>
                 <p>Title: {{proposal._embeddedItems.proposal.title}}</p>
                 <p>Topics : {{proposal._embeddedItems.proposal.topics[0]}},{{proposal._embeddedItems.proposal.topics[1]}}</p>
-                <button ng-if="publish.user == 'admin'" type="button" ng-click="publish.sendPublicate(proposal);" class="btn btn-success pull-right">Send this proposal to publicate</button>
+                <button ng-if="publish.user == 'coordinator'" type="button" ng-click="publish.sendPublicate(proposal);" class="btn btn-success pull-right">Send this proposal to publicate</button>
             </div>
         </div>
     </div>
