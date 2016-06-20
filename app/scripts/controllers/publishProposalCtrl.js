@@ -9,7 +9,7 @@
  */
 angular.module('thesismarketApp')
 
-.controller('PublishProposalCtrl', function (PublishProposals, PublishSubmissions, $rootScope, $scope) {
+.controller('PublishProposalCtrl', function (PublishProposals, $rootScope, $scope) {
 
 
     var vm = this;
@@ -40,16 +40,6 @@ angular.module('thesismarketApp')
         }).catch(function (error) {
             $scope.error = error;
         });
-
-
-        PublishSubmissions.query().$promise.then(function (publishSubmissions) {
-
-            vm.publishSubmissions = publishSubmissions._embeddedItems;
-            console.log(vm.publishSubmissions);
-        }).catch(function (error) {
-            $scope.error = error;
-        });
-
 
     }
 
