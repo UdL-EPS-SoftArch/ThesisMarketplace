@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('thesismarketApp')
-    .controller('ProposalSubmissionsCtrl', function ($scope, $rootScope, ProposalSubmission, PublishProposals) {
+    .controller('ProposalSubmissionsCtrl', function ($scope, $rootScope, $state, ProposalSubmission, PublishProposals) {
 
         $scope.proposalSubmissions = [];
         $scope.user = $rootScope.loggedInUsername;
@@ -9,24 +9,21 @@ angular.module('thesismarketApp')
         /**
          * @ngdoc method
          * @name sendPublicate
-         * @methodOf              
+         * @methodOf
          * @name init thesismarketApp.controller:ProposalSubmissionsCtrl
          * @description Function send Publish Submission to Publish Proposal.
          */
         $scope.sendPublicate = function (publishSubmission) {
+            var proposalPublication = {
+              publishes: '/proposalSubmissions/' + publishSubmission._links.self.href.split('/').pop() };
 
-            PublishProposals.update(publishSubmission._embeddedItems).$promise.then(function () {
-                ProposalSubmission.remove(publishSubmission._embeddedItems).$promise.then(function () {
-
-
-                }).catch(function (error) {
-                    $scope.error = error;
-                });
-            }).catch(function (error) {
+            PublishProposals.update(proposalPublication).$promise
+              .then(function () {
+                $state.go('publishproposal');
+              })
+              .catch(function (error) {
                 $scope.error = error;
-            });
-
-
+              });
         };
 
         ProposalSubmission.query().$promise.then(function (proposalSubmissions) {
