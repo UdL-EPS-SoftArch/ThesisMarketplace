@@ -1,0 +1,45 @@
+{
+  "_embedded" : {
+    "proposals" : [ {
+      "title" : "Really interesting project",
+      "description" : "",
+      "degree" : "Computer Science BSc",
+      "status" : "DRAFT",
+      "topics" : [ "Web Engineering" ],
+      "_links" : {
+        "self" : {
+          "href" : "http://thesismarket-api.herokuapp.com/proposals/1"
+        },
+        "proposal" : {
+          "href" : "http://thesismarket-api.herokuapp.com/proposals/1"
+        },
+        "submittedBy" : {
+          "href" : "http://thesismarket-api.herokuapp.com/proposals/1/submittedBy"
+        },
+        "creator" : {
+          "href" : "http://thesismarket-api.herokuapp.com/proposals/1/creator"
+        },
+        "director" : {
+          "href" : "http://thesismarket-api.herokuapp.com/proposals/1/director"
+        },
+        "codirector" : {
+          "href" : "http://thesismarket-api.herokuapp.com/proposals/1/codirector"
+        },
+        "students" : {
+          "href" : "http://thesismarket-api.herokuapp.com/proposals/1/students"
+        }
+      }
+    } ]
+  },
+  "_links" : {
+    "self" : {
+      "href" : "http://thesismarket-api.herokuapp.com/proposals"
+    }
+  },
+  "page" : {
+    "size" : 20,
+    "totalElements" : 1,
+    "totalPages" : 1,
+    "number" : 0
+  }
+}

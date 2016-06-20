@@ -1,0 +1,21 @@
+{
+  "email" : "professor1@thesismarket",
+  "authorities" : [ {
+    "authority" : "ROLE_PROFESSOR"
+  }, {
+    "authority" : "ROLE_PROPONENT"
+  } ],
+  "coordinator" : false,
+  "accountNonExpired" : true,
+  "accountNonLocked" : true,
+  "credentialsNonExpired" : true,
+  "enabled" : true,
+  "_links" : {
+    "self" : {
+      "href" : "http://localhost:8080/professors/professor1"
+    },
+    "professor" : {
+      "href" : "http://localhost:8080/professors/professor1"
+    }
+  }
+}

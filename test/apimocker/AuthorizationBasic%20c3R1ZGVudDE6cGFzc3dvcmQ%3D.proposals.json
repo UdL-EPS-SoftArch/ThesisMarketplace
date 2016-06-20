@@ -1,0 +1,45 @@
+{
+  "_embedded" : {
+    "proposals" : [ {
+      "title" : "Raw idea for project",
+      "description" : null,
+      "degree" : null,
+      "status" : "DRAFT",
+      "topics" : [ ],
+      "_links" : {
+        "self" : {
+          "href" : "https://thesismarket-api.herokuapp.com/proposals/5"
+        },
+        "proposal" : {
+          "href" : "https://thesismarket-api.herokuapp.com/proposals/5"
+        },
+        "submittedBy" : {
+          "href" : "https://thesismarket-api.herokuapp.com/proposals/5/submittedBy"
+        },
+        "creator" : {
+          "href" : "https://thesismarket-api.herokuapp.com/proposals/5/creator"
+        },
+        "director" : {
+          "href" : "https://thesismarket-api.herokuapp.com/proposals/5/director"
+        },
+        "codirector" : {
+          "href" : "https://thesismarket-api.herokuapp.com/proposals/5/codirector"
+        },
+        "students" : {
+          "href" : "https://thesismarket-api.herokuapp.com/proposals/5/students"
+        }
+      }
+    } ]
+  },
+  "_links" : {
+    "self" : {
+      "href" : "https://thesismarket-api.herokuapp.com/proposals"
+    }
+  },
+  "page" : {
+    "size" : 20,
+    "totalElements" : 1,
+    "totalPages" : 1,
+    "number" : 0
+  }
+}

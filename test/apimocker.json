@@ -1,0 +1,32 @@
+{
+  "mockDirectory": "test/apimocker",
+  "port": "8080",
+  "allowedDomains": ["http://localhost:9000"],
+  "allowedHeaders": ["Content-Type", "Authorization"],
+  "webServices": {
+    "proposals": {
+      "verbs": ["get"],
+      "switch": ["Authorization"],
+      "responses": {
+        "get": {"mockFile": "proposals.json"}
+      },
+      "switchResponses": {
+        "AuthorizationBasic cHJvZmVzc29yMTpwYXNzd29yZA==": {"httpStatus": 200},
+        "AuthorizationBasic c3R1ZGVudDE6cGFzczJvcmQ=": {"httpStatus": 200},
+        "AuthorizationBasic YWRtaW46cGFzc3dvcmQ=": {"httpStatus": 200}
+      }
+    },
+    "proposals/1/creator": {
+      "verbs": ["get"],
+      "responses": {
+        "get": {"httpStatus": 200, "mockFile": "proposals1creator.json"}
+      }
+    },
+    "users": {
+      "verbs": ["get"],
+      "responses": {
+        "get": {"httpStatus": 200, "mockFile": "empty.json"}
+      }
+    }
+  }
+}
