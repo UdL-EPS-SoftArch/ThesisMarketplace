@@ -1,6 +1,7 @@
 <div>
     <h3>Proposal Submissions</h3>
 </div>
+<div ng-show="error" class="alert alert-danger">{{error.data.message}}</div>
 <div class="row" ng-repeat="proposalSubmission in proposalSubmissions">
     <div class="col-lg-12">
         <h4>{{ proposalSubmission.title}} by {{proposalSubmission.agent.email}}</h4>
