@@ -15,26 +15,7 @@ angular.module('thesismarketApp')
     var vm = this;
     $scope.error = '';
 
-    /**
-     * @ngdoc method
-     * @name sendPublicate
-     * @methodOf              
-     * @name init thesismarketApp.controller:PublishProposalCtrl
-     * @description Function send Publish Submission to Publish Proposal.
-     */
-    vm.sendPublicate = function (publishSubmission) {
-        PublishProposals.update(publishSubmission._embeddedItems).$promise.then(function (result) {
-            PublishSubmissions.remove(publishSubmission._embeddedItems).$promise.then(function (result) {
-                console.log(result);
 
-            }).catch(function (error) {
-                $scope.error = error;
-            });
-        }).catch(function (error) {
-            $scope.error = error;
-        });
-
-    };
     /**
      * @ngdoc method
      * @name init
@@ -48,7 +29,7 @@ angular.module('thesismarketApp')
         vm.publishProposals = [];
 
 
-        vm.user = $rootScope.loggedInUsername;
+        //vm.user = $rootScope.loggedInUsername;
         PublishProposals.query().$promise.then(function (publishProposals) {
             vm.publishProposals = publishProposals._embeddedItems;
             vm.publishProposals.forEach(function (publishProposal) {

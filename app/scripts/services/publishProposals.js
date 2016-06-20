@@ -22,18 +22,4 @@ angular.module('thesismarketApp')
                 method: 'DELETE'
             }
         });
-  }])
-    .factory('PublishSubmissions', ['$resource', 'ENV', function ($resource, ENV) {
-        return $resource(ENV.api + '/proposalSubmissions/:id', null, {
-            'query': {
-                method: 'GET',
-                isArray: false
-            },
-            'update': {
-                method: 'PUT'
-            },
-            'remove': {
-                method: 'DELETE'
-            }
-        });
-          }]);
+  }]);
