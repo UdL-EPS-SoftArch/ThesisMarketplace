@@ -8,7 +8,9 @@
         <p>Description: {{proposalSubmission.submits.description}}</p>
         <p>Degree: {{proposalSubmission.submits.degree}}</p>
         <p>Status: {{proposalSubmission.submits.status}}</p>
-        <button ng-if="user == 'coordinator'" type="button" ng-click="sendPublicate(proposalSubmission);" class="btn btn-success pull-right">Send this proposal to publicate</button>
+        <button ng-if="isUserInRole('ROLE_COORDINATOR')" type="button"
+                ng-click="sendPublicate(proposalSubmission);" class="btn btn-success pull-right">
+          Send this proposal to publicate</button>
     </div>
 
 </div>
