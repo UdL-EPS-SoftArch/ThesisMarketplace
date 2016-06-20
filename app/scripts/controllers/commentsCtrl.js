@@ -13,9 +13,7 @@ angular.module('thesismarketApp')
     $scope.comments = [];
     $scope.error = '';
 
-    Comment
-      .query()
-      .$promise
+    Comment.query().$promise
       .then(function (comments) {
         $scope.comments = comments._embeddedItems;
         $scope.comments
@@ -33,7 +31,7 @@ angular.module('thesismarketApp')
       Comment.save($scope.comment)
         .$promise
         .then(function (comment) {
-          $state.go('home');
+          $state.go("home");
         });
     };
   });

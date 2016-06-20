@@ -1,10 +1,11 @@
 <div>
   <h1>You can add new comment!</h1>
 </div>
-<form name="form">
+<form name="form" ng-submit="addComment()">
   <div class="form-group">
     <label>Comment</label>
-    <textarea type="text" name="comment" id="comment" class="form-control" ng-model="comment" required/>
+    <textarea class="form-control" ng-model="comment.text" placeholder="Enter a comment for the publish publication"
+              required/>
     <span ng-show="form.comment.$dirty && form.comment.$error.required" class="help-block">Comment is required</span>
   </div>
   <div class="form-actions">
