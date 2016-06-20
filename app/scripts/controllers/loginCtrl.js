@@ -8,8 +8,8 @@
  * Controller of the thesismarketApp
  */
 angular.module('thesismarketApp')
-  .controller('LoginCtrl', ['ENV', 'authService', 'authDefaults', '$rootScope', '$scope', '$state',
-      function(ENV, authService, authDefaults, $rootScope, $scope, $state) {
+  .controller('LoginCtrl', ['ENV', 'authService', 'authDefaults', '$rootScope', '$scope', '$state', '$http',
+      function(ENV, authService, authDefaults, $rootScope, $scope, $state, $http) {
 
         authDefaults.authenticateUrl = ENV.api+'/users';
         // define the endpoints that will be authenticated
@@ -18,8 +18,17 @@ angular.module('thesismarketApp')
         // listen for login events
         $rootScope.$on('login', function() {
           $rootScope.loggedInUsername = authService.username();
+          $http.get(ENV.api+'/users/'+$rootScope.loggedInUsername).then(function(result) {
+            $rootScope.loggedInUserRoles = result.data.authorities;
+          });
           $state.go('home');
         });
+
+        $rootScope.isUserInRole = function(role) {
+          return $rootScope.loggedInUserRoles.filter(function(userRole) {
+            return userRole.authority === role;
+          }).length > 0;
+        };
 
         // method to log-in
         $scope.onLoginButton = function () {
