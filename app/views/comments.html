@@ -4,7 +4,8 @@
 <div ng-show="error" class="alert alert-danger">{{error.data.message}}</div>
 <div class="row"  ng-repeat="comment in comments">
   <div class="col-lg-12">
-    <h3><b><u>{{comment.author._links.self.href.split('/').pop()}}</u></b></h3>
-    <p>{{comment.text}}</p>
+    <h3>{{comment.comments.proposal.title}}</h3>
+    <p><b><u>Author</u> : {{comment.author._links.self.href.split('/').pop()}}</b></p>
+    <p>Comment: {{comment.text}}</p>
   </div>
 </div>

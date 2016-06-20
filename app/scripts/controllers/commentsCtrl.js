@@ -19,6 +19,7 @@ angular.module('thesismarketApp')
         $scope.comments
           .forEach(function (comment) {
             comment.author = comment._resources('author').get();
+            comment.comments = comment._resources('comments').get();
           });
       })
       .catch(function (error) {
