@@ -19,7 +19,7 @@ angular.module('thesismarketApp')
     /**
      * @ngdoc method
      * @name init
-     * @methodOf              
+     * @methodOf
      * @name init thesismarketApp.controller:PublishProposalCtrl
      * @description Function who is auto-executed first.
      */
@@ -33,8 +33,8 @@ angular.module('thesismarketApp')
         PublishProposals.query().$promise.then(function (publishProposals) {
             vm.publishProposals = publishProposals._embeddedItems;
             vm.publishProposals.forEach(function (publishProposal) {
-                publishProposal.publishes = publishProposal._resources("publishes").get();
-                publishProposal.agent = publishProposal._resources("agent").get();
+                publishProposal.publishes = publishProposal._resources('publishes').get();
+                publishProposal.agent = publishProposal._resources('agent').get();
             });
 
         }).catch(function (error) {

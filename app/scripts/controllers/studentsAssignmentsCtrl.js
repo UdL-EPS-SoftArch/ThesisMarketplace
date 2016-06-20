@@ -17,9 +17,9 @@ angular.module('thesismarketApp')
       $scope.studentsAssignments = studentsAssignments._embeddedItems;
 
       $scope.studentsAssignments.forEach(function(studentAssignment) {
-          studentAssignment._resources("assigns").get().$promise.then(function(studentOffer) {
+          studentAssignment._resources('assigns').get().$promise.then(function(studentOffer) {
             studentAssignment.assigns = studentOffer;
-            studentAssignment.assigns.agent = studentOffer._resources("agent").get();
+            studentAssignment.assigns.agent = studentOffer._resources('agent').get();
           });
       });
 
