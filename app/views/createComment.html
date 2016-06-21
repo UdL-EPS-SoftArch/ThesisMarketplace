@@ -1,6 +1,7 @@
 <div>
   <h1>You can add new comment!</h1>
 </div>
+<div ng-show="error" class="alert alert-danger">{{error.data.message}}</div>
 <form name="form" ng-submit="addComment()">
   <div class="form-group">
     <label>Comment</label>
