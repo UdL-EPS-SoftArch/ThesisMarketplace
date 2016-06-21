@@ -22,41 +22,48 @@ angular
   ])
   .config(function ($stateProvider) {
     $stateProvider
-      .state('home', {        // Home page
+      .state('home', {                // Home page
         url: '/',
         templateUrl: 'views/home.html'})
-      .state('login', {       // Login
+      .state('login', {               // Login
         url: '/login',
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl' })
-      .state('logout', {       // Logout
+      .state('logout', {              // Logout
         url: '/logout',
         controller: 'LogoutCtrl' })
-      .state('proposals', {   // List Proposals
+      .state('proposals', {           // List Proposals
         url: '/proposals',
         templateUrl: 'views/proposals.html',
         controller: 'ProposalsCtrl' })
-      .state('comments', {   // List Commnents
+      .state('comments', {            // List Commnents
         url: '/comments',
         templateUrl: 'views/comments.html',
         controller: 'CommentsCtrl' })
-      .state('studentsAssignments', {   // List Proposals
+      .state('createComment', {       // Create Commnent
+        url: '/publishproposal/:id/comment',
+        templateUrl: 'views/createComment.html',
+        controller: 'CommentsCtrl' })
+      .state('proposalPublication', { // ProposalPublication Details
+        url: '/publishproposal/:id',
+        templateUrl: 'views/proposalPublication.html',
+        controller: 'ProposalPublicationCtrl' })
+      .state('studentsAssignments', { // List Proposals
         url: '/studentsassignments',
         templateUrl: 'views/studentsAssignments.html',
         controller: 'StudentsAssignmentsCtrl' })
-      .state('publishproposal', { // List ProposalPublications
+      .state('publishproposal', {     // List ProposalPublications
         url: '/publishproposal',
         templateUrl: 'views/publishproposal.html',
-        controller: 'PublishProposalCtrl as publish'})
-      .state('proposalSubmissions' ,{
+        controller: 'PublishProposalCtrl as publish' })
+      .state('proposalSubmissions' , {// List ProposalSubmissions
         url: '/proposalSubmissions',
         templateUrl: 'views/proposalSubmissions.html',
-        controller: 'ProposalSubmissionsCtrl'
-      })
-      .state('registerproposal', { // List RegisterPublcations
+        controller: 'ProposalSubmissionsCtrl' })
+      .state('registerproposal', {    // List ProposalRegistrations
         url: '/registerproposal',
         templateUrl: 'views/registerproposal.html',
-        controller: 'RegisterProposalCtrl as register'});
+        controller: 'RegisterProposalCtrl as register' });
   })
   .run(function($state) {
     $state.go('home'); // Initial transition when app starts
