@@ -34,6 +34,8 @@ angular.module('thesismarketApp')
                 var ref = proposalSubmission._links.self.href;
                 proposalSubmission.title = ref.split('/')[3] + ' ' + ref.split('/')[4];
             });
+        }).catch(function (error) {
+          $scope.error = error;
         });
 
     });
