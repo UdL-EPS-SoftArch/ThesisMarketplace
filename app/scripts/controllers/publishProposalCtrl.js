@@ -10,31 +10,21 @@
 angular.module('thesismarketApp')
 
 .controller('PublishProposalCtrl', function (PublishProposals, $rootScope, $scope) {
-
-
+  
     var vm = this;
     $scope.error = '';
-
-
-    /**
-     * @ngdoc method
-     * @name init
-     * @methodOf
-     * @name init thesismarketApp.controller:PublishProposalCtrl
-     * @description Function who is auto-executed first.
-     */
+  
     //init function
     function init() {
 
         vm.publishProposals = [];
-
-
-        //vm.user = $rootScope.loggedInUsername;
+      
         PublishProposals.query().$promise.then(function (publishProposals) {
             vm.publishProposals = publishProposals._embeddedItems;
             vm.publishProposals.forEach(function (publishProposal) {
                 publishProposal.publishes = publishProposal._resources('publishes').get();
                 publishProposal.agent = publishProposal._resources('agent').get();
+                publishProposal.commentedBy = publishProposal._resources('commentedBy').get();
             });
 
         }).catch(function (error) {
@@ -42,8 +32,6 @@ angular.module('thesismarketApp')
         });
 
     }
-
+  
     init();
-
-
 });
