@@ -9,5 +9,8 @@
     <p>Degree: {{proposal.degree}}</p>
     <p>Status: {{proposal.status}}</p>
     <p>Topics: <i ng-repeat="topic in proposal.topics">{{topic}}{{$last ? '' : ', '}}</i></p>
+    <button type="button"
+            ng-click="submitProposal(proposal);" class="btn btn-success pull-right">
+      Submit Proposal</button>
   </div>
 </div>
