@@ -15,7 +15,7 @@
     <h4>Degree: {{publication.proposal.degree}}</h4>
     <h4>Email: {{publication.agent.email}}</h4>
     <h4>Date Time Published: {{publication.dateTime}}</h4>
-    <button ui-sref="commentsPublishProposal({id: publication._links.self.href.split('/').pop()})">See {{publication.commentedBy._embeddedItems.length}} comments</button>
+    <button ui-sref="proposalPublication({id: publication._links.self.href.split('/').pop()})">See {{publication.commentedBy._embeddedItems.length}} comments</button>
     <button ui-sref="createComment({id: publication._links.self.href.split('/').pop()})">Add comment</button>
   </div>
 </div>

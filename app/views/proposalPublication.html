@@ -1,0 +1,12 @@
+<h1>Proposal Details</h1>
+<div ng-show="error" class="alert alert-danger">{{error.data.message}}</div>
+<h4>Title: {{publication.proposal.title}}</h4>
+<h4>Degree: {{publication.proposal.degree}}</h4>
+<h4>Email: {{publication.agent.email}}</h4>
+<h4>Date Time Published: {{publication.dateTime}}</h4>
+<div class="row"  ng-repeat="comment in publication.commentedBy._embeddedItems">
+  <div class="col-lg-12">
+    <h3><b>{{comment.author._links.self.href.split('/').pop()}}</b></h3>
+    <p>{{comment.text}}</p>
+  </div>
+</div>

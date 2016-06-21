@@ -44,10 +44,10 @@ angular
         url: '/publishproposal/:id/comment',
         templateUrl: 'views/createComment.html',
         controller: 'CommentsCtrl' })
-      .state('commentsPublishProposal', {   // List Comments of Proposal
-        url: '/publishproposal/:id/comments',
-        templateUrl: 'views/commentsPublishProposal.html',
-        controller: 'CommentsCtrl' })
+      .state('proposalPublication', { // ProposalPublication Details
+        url: '/publishproposal/:id',
+        templateUrl: 'views/proposalPublication.html',
+        controller: 'ProposalPublicationCtrl' })
       .state('studentsAssignments', { // List Proposals
         url: '/studentsassignments',
         templateUrl: 'views/studentsAssignments.html',
@@ -63,7 +63,7 @@ angular
       .state('registerproposal', {    // List ProposalRegistrations
         url: '/registerproposal',
         templateUrl: 'views/registerproposal.html',
-        controller: 'RegisterProposalCtrl as register' })
+        controller: 'RegisterProposalCtrl as register' });
   })
   .run(function($state) {
     $state.go('home'); // Initial transition when app starts
