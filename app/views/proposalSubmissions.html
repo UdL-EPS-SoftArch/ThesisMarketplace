@@ -1,12 +1,17 @@
 <div>
-  <h3>Proposal Submissions</h3>
+    <h3>Proposal Submissions</h3>
 </div>
-<div class="row"  ng-repeat="proposalSubmission in proposalSubmissions">
-  <div class="col-lg-12">
-    <h4>{{ proposalSubmission.title}} by {{proposalSubmission.agent.email}}</h4>
-    <p>Title: {{proposalSubmission.submits.title}}</p>
-    <p>Description: {{proposalSubmission.submits.description}}</p>
-    <p>Degree: {{proposalSubmission.submits.degree}}</p>
-    <p>Status: {{proposalSubmission.submits.status}}</p>
-  </div>
+<div ng-show="error" class="alert alert-danger">{{error.data.message}}</div>
+<div class="row" ng-repeat="proposalSubmission in proposalSubmissions">
+    <div class="col-lg-12">
+        <h4>{{ proposalSubmission.title}} by {{proposalSubmission.agent.email}}</h4>
+        <p>Title: {{proposalSubmission.submits.title}}</p>
+        <p>Description: {{proposalSubmission.submits.description}}</p>
+        <p>Degree: {{proposalSubmission.submits.degree}}</p>
+        <p>Status: {{proposalSubmission.submits.status}}</p>
+        <button ng-if="isUserInRole('ROLE_COORDINATOR')" type="button"
+                ng-click="sendPublicate(proposalSubmission);" class="btn btn-success pull-right">
+          Send this proposal to publicate</button>
+    </div>
+
 </div>

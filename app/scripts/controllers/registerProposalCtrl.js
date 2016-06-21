@@ -29,8 +29,8 @@ angular.module('thesismarketApp')
         RegisterProposals.query().$promise.then(function (registerProposals) {
             vm.registerProposals = registerProposals._embeddedItems;
             vm.registerProposals.forEach(function (registerProposal) {
-                registerProposal.registers = registerProposal._resources("registers").get();
-                registerProposal.agent = registerProposal._resources("agent").get();
+                registerProposal.registers = registerProposal._resources('registers').get();
+                registerProposal.agent = registerProposal._resources('agent').get();
             });
         });
     }

@@ -9,15 +9,17 @@
  */
 angular.module('thesismarketApp')
 
-.controller('PublishProposalCtrl', function (PublishProposals) {
+.controller('PublishProposalCtrl', function (PublishProposals, $rootScope, $scope) {
 
 
     var vm = this;
+    $scope.error = '';
+
 
     /**
      * @ngdoc method
      * @name init
-     * @methodOf              
+     * @methodOf
      * @name init thesismarketApp.controller:PublishProposalCtrl
      * @description Function who is auto-executed first.
      */
@@ -25,15 +27,23 @@ angular.module('thesismarketApp')
     function init() {
 
         vm.publishProposals = [];
-      
+
+
+        //vm.user = $rootScope.loggedInUsername;
         PublishProposals.query().$promise.then(function (publishProposals) {
             vm.publishProposals = publishProposals._embeddedItems;
             vm.publishProposals.forEach(function (publishProposal) {
-                publishProposal.publishes = publishProposal._resources("publishes").get();
-                publishProposal.agent = publishProposal._resources("agent").get();
+                publishProposal.publishes = publishProposal._resources('publishes').get();
+                publishProposal.agent = publishProposal._resources('agent').get();
             });
 
+        }).catch(function (error) {
+            $scope.error = error;
         });
+
     }
+
     init();
+
+
 });

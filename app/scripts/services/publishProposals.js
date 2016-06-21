@@ -16,7 +16,7 @@ angular.module('thesismarketApp')
                 isArray: false
             },
             'update': {
-                method: 'PUT'
+                method: 'POST'
             },
             'remove': {
                 method: 'DELETE'

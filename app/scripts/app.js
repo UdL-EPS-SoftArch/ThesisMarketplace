@@ -56,7 +56,7 @@ angular
       .state('registerproposal', { // List RegisterPublcations
         url: '/registerproposal',
         templateUrl: 'views/registerproposal.html',
-        controller: 'RegisterProposalCtrl as register'})
+        controller: 'RegisterProposalCtrl as register'});
   })
   .run(function($state) {
     $state.go('home'); // Initial transition when app starts
