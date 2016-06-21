@@ -44,6 +44,10 @@ angular
         url: '/publishproposal/:id/comment',
         templateUrl: 'views/createComment.html',
         controller: 'CommentsCtrl' })
+      .state('commentsPublishProposal', {   // List Comments of Proposal
+        url: '/publishproposal/:id/comments',
+        templateUrl: 'views/commentsPublishProposal.html',
+        controller: 'CommentsCtrl' })
       .state('studentsAssignments', { // List Proposals
         url: '/studentsassignments',
         templateUrl: 'views/studentsAssignments.html',
