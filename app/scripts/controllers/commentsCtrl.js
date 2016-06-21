@@ -28,9 +28,26 @@ angular.module('thesismarketApp')
           $scope.error = error;
         })
     };
-    
+
+
+    $scope.showComments = function () {
+      Comment
+        .query(API + "/proposalPublications/" + $location.url().split('/')[2])
+        .$promise
+        .then(function (comments) {
+          $scope.comments = comments._embeddedItems;
+          $scope.comments
+            .forEach(function (comment) {
+              comment.author = comment._resources('author').get();
+              comment.comments = comment._resources('comments').get();
+            });
+        })
+        .catch(function (error) {
+          $scope.error = error;
+        });
+    };
     $scope.addComment = function () {
-      $scope.comment.comments = API + "/proposalPublications/" + $location.url().split('/')[2];
+      $scope.comment.comments = API + "/proposalPublications/" + $location.url().split('/')[2] + "/commentedBy";
       Comment.save($scope.comment)
         .$promise
         .then(function (comment) {
