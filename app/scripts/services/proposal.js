@@ -13,7 +13,6 @@ angular.module('thesismarketApp')
     return $resource(ENV.api+'/proposals/:id', null,
       {
         'query': { method:'GET', isArray: false },
-        'create': { method:'Post' },
         'update': { method:'PUT' },
         'remove': {method:'DELETE'}
       });

@@ -38,7 +38,7 @@ angular.module('thesismarketApp')
     };
     
     $scope.addProposal = function (proposal) {
-      Proposal.create(proposal).$promise
+      Proposal.save(proposal).$promise
         .then(function() {
           $state.go('proposals');
         })
