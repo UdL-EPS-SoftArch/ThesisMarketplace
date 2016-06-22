@@ -8,7 +8,7 @@
  * Controller of the thesismarketApp
  */
 angular.module('thesismarketApp')
-  .controller('ProposalsCtrl', function($scope, Proposal) {
+  .controller('ProposalsCtrl', function($scope, $state, $rootScope, Proposal, ProposalSubmission) {
 
     $scope.proposals = [];
     $scope.error = '';
@@ -24,4 +24,17 @@ angular.module('thesismarketApp')
         $scope.error = error;
       });
 
+    $scope.submitProposal = function (proposal) {
+      var proposalSubmission = {
+        submits: '/proposals/' + proposal._links.self.href.split('/').pop() };
+
+      ProposalSubmission.save(proposalSubmission).$promise
+        .then(function () {
+          $state.go('proposalSubmissions');
+        })
+        .catch(function (error) {
+          $scope.error = error;
+        });
+    };
+    
   });
