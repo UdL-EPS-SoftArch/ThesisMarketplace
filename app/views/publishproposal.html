@@ -17,6 +17,7 @@
     <h4>Date Time Published: {{publication.dateTime}}</h4>
     <button ui-sref="proposalPublication({id: publication._links.self.href.split('/').pop()})">See {{publication.commentedBy._embeddedItems.length}} comments</button>
     <button ui-sref="createComment({id: publication._links.self.href.split('/').pop()})">Add comment</button>
-    <button ng-click="addStudentOffer(publication);" class="btn btn-success pull-right">Offer this</button>
+    <button ng-if="isUserInRole('ROLE_STUDENT')"
+            ng-click="addStudentOffer(publication);" class="btn btn-success pull-right">Offer as Student</button>
   </div>
 </div>
