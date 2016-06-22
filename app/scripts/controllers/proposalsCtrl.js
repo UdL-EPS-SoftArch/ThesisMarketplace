@@ -28,7 +28,7 @@ angular.module('thesismarketApp')
       var proposalSubmission = {
         submits: '/proposals/' + proposal._links.self.href.split('/').pop() };
 
-      ProposalSubmission.update(proposalSubmission).$promise
+      ProposalSubmission.save(proposalSubmission).$promise
         .then(function () {
           $state.go('proposalSubmissions');
         })
