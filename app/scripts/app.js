@@ -36,6 +36,10 @@ angular
         url: '/proposals',
         templateUrl: 'views/proposals.html',
         controller: 'ProposalsCtrl' })
+      .state('createProposal', {           // Create Proposal
+        url: '/proposals/new',
+        templateUrl: 'views/createProposal.html',
+        controller: 'ProposalsCtrl' })
       .state('comments', {            // List Commnents
         url: '/comments',
         templateUrl: 'views/comments.html',

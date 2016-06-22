@@ -1,0 +1,22 @@
+<div>
+  <h1>New proposal</h1>
+</div>
+<div ng-show="error" class="alert alert-danger">{{error.data.message}}</div>
+<form name="form" ng-submit="addProposal(proposal)">
+  <div class="form-group">
+    <label>Title</label>
+    <textarea class="form-control" ng-model="proposal.title" placeholder="Enter the title of the proposal"
+              required/>
+    <span ng-show="form.proposal.$dirty && form.proposal.$error.required" class="help-block">Title is required</span>
+    <label>Description</label>
+    <textarea class="form-control" ng-model="proposal.description" placeholder="Enter the description of the proposal"/>
+    <label>Degree</label>
+    <textarea class="form-control" ng-model="proposal.degree" placeholder="Enter the degree of the proposal"/>
+    <label>Topics</label>
+    <textarea class="form-control" ng-model="proposal.topics" ng-list placeholder="Enter the issues of the proposal, separated by commas"/>
+
+  </div>
+  <div class="form-actions">
+    <button type="submit" class="btn btn-primary">Create proposal</button>
+  </div>
+</form>
