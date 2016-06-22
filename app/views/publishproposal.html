@@ -17,5 +17,6 @@
     <h4>Date Time Published: {{publication.dateTime}}</h4>
     <button ui-sref="proposalPublication({id: publication._links.self.href.split('/').pop()})">See {{publication.commentedBy._embeddedItems.length}} comments</button>
     <button ui-sref="createComment({id: publication._links.self.href.split('/').pop()})">Add comment</button>
+    <button ui-sref="editProposal({id: publication._links.self.href.split('/').pop()})">Edit proposal</button>
   </div>
 </div>
