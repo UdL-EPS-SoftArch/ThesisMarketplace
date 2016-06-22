@@ -9,10 +9,11 @@
  */
 angular.module('thesismarketApp')
 
-.controller('RegisterProposalCtrl', function (RegisterProposals) {
+.controller('RegisterProposalCtrl', function (RegisterProposals, $rootScope, $scope) {
 
 
     var vm = this;
+    $scope.error = '';
 
     /**
      * @ngdoc method
@@ -32,6 +33,8 @@ angular.module('thesismarketApp')
                 registerProposal.registers = registerProposal._resources('registers').get();
                 registerProposal.agent = registerProposal._resources('agent').get();
             });
+        }).catch(function (error) {
+            $scope.error = error;
         });
     }
     init();
