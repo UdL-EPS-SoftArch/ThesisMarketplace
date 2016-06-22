@@ -1,5 +1,5 @@
 <div>
-  <h3>Publish Proposal</h3>
+  <h3>Proposal Publications</h3>
 </div>
 
 <div class="row" ng-repeat="publication in publish.publishProposals">
@@ -17,5 +17,6 @@
     <h4>Date Time Published: {{publication.dateTime}}</h4>
     <button ui-sref="proposalPublication({id: publication._links.self.href.split('/').pop()})">See {{publication.commentedBy._embeddedItems.length}} comments</button>
     <button ui-sref="createComment({id: publication._links.self.href.split('/').pop()})">Add comment</button>
+    <button ng-click="addStudentOffer(publication);" class="btn btn-success pull-right">Offer this</button>
   </div>
 </div>
