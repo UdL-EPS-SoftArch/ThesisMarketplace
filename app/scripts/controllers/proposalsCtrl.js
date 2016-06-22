@@ -37,4 +37,13 @@ angular.module('thesismarketApp')
         });
     };
     
+    $scope.addProposal = function (proposal) {
+      Proposal.create(proposal).$promise
+        .then(function() {
+          $state.go('proposals');
+        })
+        .catch(function (error) {
+          $scope.error = error;
+        });
+    };
   });
