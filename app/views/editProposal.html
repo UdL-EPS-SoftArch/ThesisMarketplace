@@ -1,0 +1,15 @@
+<div>
+  <h1>You can edit your proposal!</h1>
+</div>
+<div ng-show="error" class="alert alert-danger">{{error.data.message}}</div>
+<form name="form" ng-submit="addComment()">
+  <div class="form-group">
+    <label>New Title</label>
+    <textarea class="form-control" ng-model="newTitle.text" placeholder="Enter the new title for the selected proposal"
+              required/>
+    <span ng-show="form.edit.$dirty && form.edit.$error.required" class="help-block">Title is required</span>
+  </div>
+  <div class="form-actions">
+    <button type="submit" class="btn btn-primary">Change title</button>
+  </div>
+</form>
