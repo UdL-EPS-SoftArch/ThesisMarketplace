@@ -73,10 +73,9 @@ angular
         templateUrl: 'views/registerproposal.html',
         controller: 'RegisterProposalCtrl as register' })
       .state('assignStudent', {       // Create StudentAssignment
-        url: '/assignStudent',
-        templateUrl: 'views/assignStudent.html',
-        controller: 'AssignStudentCtrl' });
-        controller: 'RegisterProposalCtrl as register' })
+        url: '/studentAssignment',
+        templateUrl: 'views/studentAssignmentPost.html',
+        controller: 'StudentAssignmentPostCtrl' })
       .state('studentOffers', {      // List StudentOffers
         url: '/studentOffers',
         templateUrl: 'views/studentoffers.html',
