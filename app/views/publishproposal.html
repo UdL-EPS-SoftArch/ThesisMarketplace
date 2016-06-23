@@ -1,7 +1,7 @@
 <div>
   <h3>Proposal Publications</h3>
 </div>
-
+<div ng-show="error" class="alert alert-danger">{{error.data.message}}</div>
 <div class="row" ng-repeat="publication in publish.publishProposals">
   <div class="col-lg-12">
     <div ng-repeat="role in publication.agent.authorities">
