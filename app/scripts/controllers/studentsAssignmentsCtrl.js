@@ -8,21 +8,16 @@
  * Controller of the thesismarketApp
  */
 
-alert("")
-
 angular.module('thesismarketApp')
   .controller('StudentsAssignmentsCtrl', function($scope, StudentAssignment) {
 
-    alert("Enter controller");
     $scope.studentsAssignments = [];
-    $scope.proposal;
-    alert("test1");
 
     StudentAssignment.query().$promise.then(function (studentsAssignments) {
       $scope.studentsAssignments = studentsAssignments._embeddedItems;
 
       $scope.studentsAssignments.forEach(function(studentAssignment) {
-        studentAssignment.assigns = studentAssignment._resources("assigns").get()
+        studentAssignment.assigns = studentAssignment._resources('assigns').get();
         $scope.proposal = studentAssignment.assigns.getTarget();
       });
 
