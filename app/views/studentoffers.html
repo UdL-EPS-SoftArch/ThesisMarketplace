@@ -1,0 +1,10 @@
+<div>
+  <h3>Student Offers</h3>
+</div>
+<div class="row"  ng-repeat="studentOffer in studentOffers">
+  <div class="col-lg-12">
+    <h4>DateTime info: {{ studentOffer.dateTime }}</h4>
+    <h5>Student name: {{ studentOffer.agent._links.self.href.split('/').pop() }}</h5>
+    <h5>Proposal title: {{ studentOffer._embeddedItems.proposal.title }}</h5>
+  </div>
+</div>
