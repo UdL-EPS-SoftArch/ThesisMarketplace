@@ -68,7 +68,7 @@ angular
         url: '/registerproposal',
         templateUrl: 'views/registerproposal.html',
         controller: 'RegisterProposalCtrl as register' })
-      .state('studentsOffers', {      // List StudentOffers
+      .state('studentOffers', {      // List StudentOffers
         url: '/studentOffers',
         templateUrl: 'views/studentoffers.html',
         controller: 'StudentOfferCtrl'});
