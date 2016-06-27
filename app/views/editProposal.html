@@ -5,13 +5,13 @@
 <form name="form" ng-submit="editProposal()">
   <div class="form-group">
     <label>New Title</label>
-    <textarea class="form-control" ng-model="newTitle.text" placeholder="Enter the new title for the selected proposal"
+    <textarea class="form-control" ng-model="proposal.title" placeholder="Enter the new title for the selected proposal"
               required/>
     <span ng-show="form.edit.$dirty && form.edit.$error.required" class="help-block">Title is required</span>
   </div>
   <div class="form-group">
     <label>New Description</label>
-    <textarea class="form-control" ng-model="newDescription.text" placeholder="Enter the new description for the selected proposal"
+    <textarea class="form-control" ng-model="proposal.description" placeholder="Enter the new description for the selected proposal"
               required/>
     <span ng-show="form.edit.$dirty && form.edit.$error.required" class="help-block">Description is required</span>
   </div>
