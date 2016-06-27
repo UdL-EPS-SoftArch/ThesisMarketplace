@@ -26,4 +26,15 @@ angular.module('thesismarketApp')
         $scope.error = error;
       });
 
+    $scope.editProposal = function () {
+      $scope.proposal = '/Proposals/' + $location.url().split('/')[2];
+      Proposal.save($scope.comment).$promise
+        .then(function() {
+          $state.go('home');
+        })
+        .catch(function (error) {
+          $scope.error = error;
+        });
+    };
+
   });

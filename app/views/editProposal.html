@@ -2,7 +2,7 @@
   <h1>You can edit your proposal!</h1>
 </div>
 <div ng-show="error" class="alert alert-danger">{{error.data.message}}</div>
-<form name="form" ng-submit="addComment()">
+<form name="form" ng-submit="editProposal()">
   <div class="form-group">
     <label>New Title</label>
     <textarea class="form-control" ng-model="newTitle.text" placeholder="Enter the new title for the selected proposal"
