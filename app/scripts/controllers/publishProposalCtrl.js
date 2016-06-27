@@ -9,16 +9,31 @@
  */
 angular.module('thesismarketApp')
 
-.controller('PublishProposalCtrl', function (PublishProposals, $rootScope, $scope) {
-  
+.controller('PublishProposalCtrl', function ($scope, $rootScope, $state, PublishProposals, StudentOffer) {
+
+
     var vm = this;
+    $scope.user = $rootScope.loggedInUsername;
     $scope.error = '';
-  
+
+    $scope.addStudentOffer = function (publishProposal) {
+      var studentOffer = {
+        target: '/proposalPublications/' + publishProposal._links.self.href.split('/').pop() };
+
+      StudentOffer.save(studentOffer).$promise
+        .then(function () {
+          $state.go('studentOffers');
+        })
+        .catch(function (error) {
+          $scope.error = error;
+        });
+    };
+
     //init function
     function init() {
 
         vm.publishProposals = [];
-      
+
         PublishProposals.query().$promise.then(function (publishProposals) {
             vm.publishProposals = publishProposals._embeddedItems;
             vm.publishProposals.forEach(function (publishProposal) {
@@ -30,8 +45,6 @@ angular.module('thesismarketApp')
         }).catch(function (error) {
             $scope.error = error;
         });
-
     }
-  
     init();
 });

@@ -36,7 +36,7 @@ angular
         url: '/proposals',
         templateUrl: 'views/proposals.html',
         controller: 'ProposalsCtrl' })
-      .state('createProposal', {           // Create Proposal
+      .state('createProposal', {      // Create Proposal
         url: '/proposals/new',
         templateUrl: 'views/createProposal.html',
         controller: 'ProposalsCtrl' })
@@ -67,7 +67,11 @@ angular
       .state('registerproposal', {    // List ProposalRegistrations
         url: '/registerproposal',
         templateUrl: 'views/registerproposal.html',
-        controller: 'RegisterProposalCtrl as register' });
+        controller: 'RegisterProposalCtrl as register' })
+      .state('studentOffers', {      // List StudentOffers
+        url: '/studentOffers',
+        templateUrl: 'views/studentoffers.html',
+        controller: 'StudentOfferCtrl'});
   })
   .run(function($state) {
     $state.go('home'); // Initial transition when app starts
