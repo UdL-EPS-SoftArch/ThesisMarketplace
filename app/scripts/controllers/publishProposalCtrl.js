@@ -15,8 +15,22 @@ angular.module('thesismarketApp')
     var vm = this;
     $scope.user = $rootScope.loggedInUsername;
     $scope.error = '';
+  
+  $scope.register = function (publication) {
+    var proposalRegistration = {
+      registers: '/registerProposal/' + publication._links.self.href.split('/').pop() };
 
-    $scope.addStudentOffer = function (publishProposal) {
+    registerProposals.update(publication).$promise
+      .then(function () {
+        $state.go('registerproposal');
+      })
+      .catch(function (error) {
+        $scope.error = error;
+      });
+    
+  };
+
+  $scope.addStudentOffer = function (publishProposal) {
       var studentOffer = {
         target: '/proposalPublications/' + publishProposal._links.self.href.split('/').pop() };
 
