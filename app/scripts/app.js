@@ -40,6 +40,10 @@ angular
         url: '/proposals/new',
         templateUrl: 'views/createProposal.html',
         controller: 'ProposalsCtrl' })
+      .state('editProposal', {      // Edit Proposal
+        url: '/proposals/:id/edit',
+        templateUrl: 'views/editProposal.html',
+        controller: 'EditProposalCtrl' })
       .state('comments', {            // List Commnents
         url: '/comments',
         templateUrl: 'views/comments.html',
