@@ -9,28 +9,23 @@
  * Controller of the thesismarketApp
  */
 angular.module('thesismarketApp')
-  .controller('EditProposalCtrl', function($scope, $stateParams, PublishProposals) {
+  .controller('EditProposalCtrl', function($scope, $location, $state, $stateParams, Proposal) {
 
-    $scope.publication = {};
-
+    $scope.proposal = {};
     $scope.error = '';
 
-    PublishProposals.query({id: $stateParams.id}).$promise
-      .then(function (publication) {
-        $scope.publication = publication;
-        $scope.publication.publishes = publication._resources('publishes').get();
-        $scope.publication.agent = publication._resources('agent').get();
-        $scope.publication.commentedBy = publication._resources('commentedBy').get();
+    Proposal.query({id: $stateParams.id}).$promise
+      .then(function (proposal) {
+        $scope.proposal = proposal;
       })
       .catch(function (error) {
         $scope.error = error;
       });
 
     $scope.editProposal = function () {
-      $scope.proposal = '/Proposals/' + $location.url().split('/')[2];
-      Proposal.save($scope.comment).$promise
+      Proposal.update({id: $stateParams.id}, $scope.proposal).$promise
         .then(function() {
-          $state.go('home');
+          $state.go('proposals');
         })
         .catch(function (error) {
           $scope.error = error;
