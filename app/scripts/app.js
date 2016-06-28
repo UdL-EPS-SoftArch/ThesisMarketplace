@@ -56,7 +56,7 @@ angular
         url: '/publishproposal/:id',
         templateUrl: 'views/proposalPublication.html',
         controller: 'ProposalPublicationCtrl' })
-      .state('studentsAssignments', { // List Proposals
+      .state('studentsAssignments', { // List Student Assignments
         url: '/studentsassignments',
         templateUrl: 'views/studentsAssignments.html',
         controller: 'StudentsAssignmentsCtrl' })
@@ -72,6 +72,10 @@ angular
         url: '/registerproposal',
         templateUrl: 'views/registerproposal.html',
         controller: 'RegisterProposalCtrl as register' })
+      .state('assignStudent', {       // Create StudentAssignment
+        url: '/studentAssignment',
+        templateUrl: 'views/studentAssignmentPost.html',
+        controller: 'StudentAssignmentPostCtrl' })
       .state('studentOffers', {      // List StudentOffers
         url: '/studentOffers',
         templateUrl: 'views/studentoffers.html',
