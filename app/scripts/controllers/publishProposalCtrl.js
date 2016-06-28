@@ -9,14 +9,28 @@
  */
 angular.module('thesismarketApp')
 
-.controller('PublishProposalCtrl', function ($scope, $rootScope, $state, PublishProposals, StudentOffer) {
+.controller('PublishProposalCtrl', function ($scope, $rootScope, $state, PublishProposals, StudentOffer, RegisterProposals) {
 
 
     var vm = this;
     $scope.user = $rootScope.loggedInUsername;
     $scope.error = '';
 
-    $scope.addStudentOffer = function (publishProposal) {
+  $scope.register = function (publication) {
+    var proposalRegistration = {
+      registers: '/proposalPublications/' + publication._links.self.href.split('/').pop() };
+
+    RegisterProposals.save(proposalRegistration).$promise
+      .then(function () {
+        $state.go('registerproposal');
+      })
+      .catch(function (error) {
+        $scope.error = error;
+      });
+
+  };
+
+  $scope.addStudentOffer = function (publishProposal) {
       var studentOffer = {
         target: '/proposalPublications/' + publishProposal._links.self.href.split('/').pop() };
 

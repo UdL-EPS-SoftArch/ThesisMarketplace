@@ -20,5 +20,8 @@
     <button ng-if="isUserInRole('ROLE_STUDENT')"
             ng-click="addStudentOffer(publication);" class="btn btn-success pull-right">Offer as Student</button>
     <button ui-sref="editProposal({id: publication.publishes._links.self.href.split('/').pop()})">Edit proposal</button>
+    <span ng-if="isUserInRole('ROLE_COORDINATOR')">
+      <button ng-click="register(publication)">Register proposal</button>
+    </span>
   </div>
 </div>
